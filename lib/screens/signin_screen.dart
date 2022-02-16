@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:myshop_app/screens/products_overview_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import '../screens/home_screen.dart';
 import '../screens/reset_password.dart';
@@ -55,8 +56,12 @@ class _SignInScreenState extends State<SignInScreen> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductsOverviewScreen(),
+                      ),
+                    );
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
